@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+
+:host {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: .5rem;
+  padding: 2rem 1rem;
+  @include mat.elevation(3, black, 0.4); 
+}
+
+mat-icon {
+  font-size: 1.6rem;
+  padding: .8rem;
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 50%;
+}
+
+span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: .3rem 0;
+}

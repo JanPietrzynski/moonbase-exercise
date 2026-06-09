@@ -39,6 +39,10 @@ testem.log
 /typings
 __screenshots__/
 
+# Agent context (local only)
+/.agents
+MENTOR_EXERCISE_ANSWER_KEY.md
+
 # System files
 .DS_Store
 Thumbs.db

@@ -1,0 +1,22 @@
+<h2>Good morning, Commander!</h2>
+<p>Here's what's happening on the moonbase.</p>
+
+@if (isLoading()) {
+  <p class="dashboard-loading">Loading...</p>
+} @else {
+  <div class="cards-container">
+    @for (card of cards(); track card.title) {
+      <app-card
+        [title]="card.title"
+        [value]="card.value"
+        [icon]="card.icon"
+        [iconColor]="card.iconColor"
+        [bgColor]="card.bgColor"
+      />
+    }
+  </div>
+
+  <div class="dashboard-panels">
+    <app-mission-status [missions]="missions()" />
+  </div>
+}
