@@ -1,59 +1,118 @@
-# MoonbaseControl
+# Mentor Exercise: Missions Feature Code Review
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+## Context
 
-## Development server
+A student has submitted their work on the **Missions feature** for the Moonbase Control application.
 
-To start a local development server, run:
+The submission covers:
+
+- Missions list page (`/missions`)
+- Mission detail page (`/missions/:id`)
+- `MissionsService` for API access
+- Feature routing configuration
+
+The student claims the feature is complete and ready for review.
+
+## Your Task
+
+Review the student's Missions implementation as you would in a real mentorship session. Focus on **Angular-specific architecture, reactivity, routing, and data access** — not general frontend advice.
+
+## Scope
+
+Review only:
+
+- `src/app/features/missions/**`
+- `src/app/features/missions/missions.routes.ts`
+
+**Out of scope:**
+
+- Dashboard, navigation, and shared components (provided as working context)
+- CSS polish unless it reflects an Angular architectural problem
+- Suggesting NgRx or other state libraries
+
+## Baseline Expectations
+
+The course teaches modern Angular patterns:
+
+- Standalone components
+- `inject()` for dependency injection
+- Signals (`signal`, `computed`, `toSignal`, `rxResource`)
+- Control flow syntax (`@if`, `@for`, `@switch`)
+- Feature-based architecture with lazy loading
+- Typed HTTP services with domain mapping
+
+## Repository Setup
+
+Copy this repository to your GitHub account:
+
+1. Go to [Your repositories](https://github.com?tab=repositories)
+2. Click **New**
+3. Choose **Import a repository**
+4. Insert `https://github.com/JanPietrzynski/moonbase-exercise.git`
+5. Make your cloned repository **public**
+
+**Do not fork repositories.**
+
+The test task repository contains two branches:
+
+- `main` — baseline application (dashboard, navigation, shared components)
+- `feature/missions` — student submission to review
+
+After importing, open the Pull Request from `feature/missions` into `main`.
+
+## How to Run the App
 
 ```bash
-ng serve
+npm run api   # Terminal 1 — mock API on port 3000
+npm start     # Terminal 2 — app on port 4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Suggested manual test flow:
 
-## Code scaffolding
+1. Open the Dashboard — confirm mission statistics load
+2. Navigate to **Missions** — confirm the list renders
+3. Open a mission detail page
+4. Navigate to a **different** mission from the list (without full page reload)
+5. Optionally: stop the API and observe error behavior
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Deliverable
 
-```bash
-ng generate component component-name
-```
+Perform a **GitHub Pull Request code review** — the same outcome you would produce for a real student submission.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Submit:
 
-```bash
-ng generate --help
-```
+1. **Link to your public repository**
+2. **Link to the Pull Request** where you completed the review
 
-## Building
+### What your review must include
 
-To build the project run:
+**Inline comments** on specific lines within the review scope. Each comment should explain:
 
-```bash
-ng build
-```
+- What the issue is
+- Why it matters in Angular terms
+- What the student should do instead
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**A review summary** submitted via GitHub's review UI (**Finish your review**) containing:
 
-## Running unit tests
+- Overall verdict: **Approve**, **Comment**, or **Request changes**
+- Critical issues that must be fixed before merge
+- 2–3 things the student did well
+- One topic you would pair on in the next mentorship session
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Review workflow
 
-```bash
-ng test
-```
+After importing the repository:
 
-## Running end-to-end tests
+1. Open the Pull Request from `feature/missions` into `main`  
+   (If no PR exists yet, create one: base `main`, compare `feature/missions`)
+2. Go to **Files changed**
+3. Click **Review changes** → leave inline comments on specific lines
+4. Submit your review with the summary above
 
-For end-to-end (e2e) testing, run:
+Do not push code fixes — this is a review-only exercise.
 
-```bash
-ng e2e
-```
+## Constraints
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Prefer modern Angular APIs over legacy patterns (`*ngIf`, constructor DI, `ngOnInit` subscriptions)
+- Feedback should be **actionable for a student** — explain what to change and what pattern to use instead
+- Prioritize issues by learning impact, not personal style preferences
