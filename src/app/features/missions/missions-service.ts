@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
 import { Mission } from './missions';
@@ -9,15 +9,13 @@ const MISSIONS_API_URL = 'http://localhost:3000/missions';
 type MissionResponse = Omit<Mission, 'launchDate'> & { launchDate: string };
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'any',
 })
 export class MissionsService {
-  private readonly http = inject(HttpClient);
+  constructor(private http: HttpClient) {}
 
   getMissions(): Observable<Mission[]> {
-    return this.http
-      .get<MissionResponse[]>(MISSIONS_API_URL)
-      .pipe(map((missions) => missions.map((m) => this.toMission(m))));
+    return this.http.get<Mission[]>(MISSIONS_API_URL);
   }
 
   getMission(id: string): Observable<Mission> {
