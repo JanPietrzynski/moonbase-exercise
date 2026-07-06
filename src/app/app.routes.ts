@@ -7,9 +7,4 @@ export const routes: Routes = [
     title: 'Dashboard',
     component: Dashboard,
   },
-  {
-    path: 'missions',
-    loadChildren: () =>
-      import('./features/missions/missions.routes').then((m) => m.missionsRoutes),
-  },
 ];
