@@ -55,10 +55,10 @@ Copy this repository to your GitHub account:
 
 The test task repository contains two branches:
 
-- `main` — baseline application (dashboard, navigation, shared components)
-- `feature/missions` — student submission to review
+- `master` — baseline application (dashboard, navigation, shared components)
+- `solution-to-review` — student submission to review
 
-After importing, open the Pull Request from `feature/missions` into `main`.
+After importing, open a Pull Request from `solution-to-review` into `master`.
 
 ## How to Run the App
 
@@ -66,6 +66,11 @@ After importing, open the Pull Request from `feature/missions` into `main`.
 npm run api   # Terminal 1 — mock API on port 3000
 npm start     # Terminal 2 — app on port 4200
 ```
+
+**Branch behavior:**
+
+- On **`master`**: the dashboard loads and mission statistics render, but the `/missions` route is not yet implemented — clicking **Missions** in the nav returns a 404.
+- On **`solution-to-review`** (or after opening the PR): the full missions feature is available. Use the manual test flow below, including the snapshot routing bug reproduction from the answer key (Artemis → back → Lunar Habitat shows stale Artemis data).
 
 Suggested manual test flow:
 
@@ -103,8 +108,8 @@ Submit:
 
 After importing the repository:
 
-1. Open the Pull Request from `feature/missions` into `main`  
-   (If no PR exists yet, create one: base `main`, compare `feature/missions`)
+1. Open the Pull Request from `solution-to-review` into `master`  
+   (If no PR exists yet, create one: base `master`, compare `solution-to-review`)
 2. Go to **Files changed**
 3. Click **Review changes** → leave inline comments on specific lines
 4. Submit your review with the summary above
